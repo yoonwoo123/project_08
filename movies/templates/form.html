@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+{% if request.resolver_match.url_name == 'new' %}
+    <h1>글 생성</h1>
+{% else %}
+    <h1>글 수정</h1>
+{% endif %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ movie_form|crispy }}
+    <input type="submit">
+</form>
+{% endblock %}
